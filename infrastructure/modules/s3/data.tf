@@ -39,11 +39,7 @@ data "aws_iam_policy_document" "bucket_policy" {
     condition {
       test     = "StringEquals"
       variable = "AWS:SourceArn"
-      values   = [data.aws_cloudfront_distribution.dist.arn]
+      values   = [var.aws_cloudfront_distribution_arn]
     }
   }
-}
-
-data "aws_cloudfront_distribution" "dist" {
-  id = aws_cloudfront_distribution.distribution.id
 }

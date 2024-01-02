@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "bucket" {
-  bucket = "jaengland-static-site"
+  bucket = var.bucket_name
   # Versioning disabled by default for personal sites
   # No bucket logging for personal sites
 
@@ -38,7 +38,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
 }
 
 resource "aws_s3_bucket_versioning" "versioning_example" {
-  bucket = aws_s3_bucket.example.id
+  bucket = aws_s3_bucket.bucket.id
   versioning_configuration {
     status = var.bucket_versioning
   }

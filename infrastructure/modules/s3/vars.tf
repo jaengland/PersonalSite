@@ -3,7 +3,7 @@ variable "bucket_name" {
   description = "Name of the bucket"
 
   validation {
-    condition     = length(var.bucket_name) < 55 && length(var.bucket_name) < 3
+    condition     = length(var.bucket_name) < 55 && length(var.bucket_name) > 3
     error_message = "The bucket_name should be less than 55 characters to allow for branch variable"
   }
 }
@@ -33,4 +33,9 @@ variable "bucket_versioning" {
   type        = string
   description = "Versioning 'Enabled' or 'Disabled'"
   default     = "Disabled"
+}
+
+variable "aws_cloudfront_distribution_arn" {
+  type        = string
+  description = "Cloudfront distribution arn"
 }
