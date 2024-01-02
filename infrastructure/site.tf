@@ -11,7 +11,7 @@ module "site_s3_bucket" {
 module "site_s3_bucket" {
   source = "./modules/cloudfront"
 
-  branch_name = var.branch_name
+  branch_name                 = var.branch_name
   bucket_regional_domain_name = module.site_s3_bucket.cloudfront_distribution_domain_name
 
 }
