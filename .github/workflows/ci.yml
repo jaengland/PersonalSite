@@ -12,13 +12,15 @@ jobs:
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v1
 
+    - name: Terraform fmt
+      run: terraform fmt -recursive -check
+
     - name: Terraform validate
       env:
         TF_VAR_branch: ${{ vars.BRANCH }}
+        TF_VAR_kms_arn: ${{ secrets.KMS_KEY}}
       run: |
-        export TF_VAR_branch_name=$GITHUB_REF_NAM
         cd infrastructure
-        terraform fmt -recursive -check
         terraform init -backend=false
         terraform validate
 

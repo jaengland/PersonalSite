@@ -23,5 +23,6 @@ jobs:
 
     - name: Terraform Apply
       env:
-        BRANCH: ${{ vars.BRANCH }}
+        TF_VAR_branch_name: ${{ vars.BRANCH }}
+        TF_VAR_kms_arn: ${{ secrets.KMS_KEY}}
       run: terraform apply -auto-approve
