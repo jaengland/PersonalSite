@@ -13,7 +13,7 @@ variable "branch_name" {
   description = "Name of the bucket"
 
   validation {
-    condition     = length(var.bucket_name) < 55
+    condition     = length(var.branch_name) < 9
     error_message = "The branch_name should be less than 8 characters"
   }
 }
