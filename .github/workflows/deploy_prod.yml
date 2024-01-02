@@ -21,11 +21,11 @@ jobs:
         BRANCH: ${{ vars.BRANCH }}
       run: |
         cd infrastructure
-        terraform init -backend-config="bucket=${BUCKET}" -backend-config="key=${BRANCH}.tfstate"
+        terraform init -backend-config="bucket=${BUCKET}" -backend-config="key=${BRANCH}.tfstate" 2>&1 | tee output.log
 
     - name: Terraform Apply
       env:
         TF_VAR_branch_name: ${{ vars.BRANCH }}
         TF_VAR_kms_arn: ${{ secrets.KMS_KEY}}
       run: |
-        terraform apply -auto-approve
+        terraform apply -auto-approve 2>&1 | tee output.log
