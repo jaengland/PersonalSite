@@ -5,16 +5,22 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    environment: test
     steps:
     - uses: actions/checkout@v2
-    
+
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v1
 
+    - name: Terraform fmt
+      run: terraform fmt -recursive -check
+
     - name: Terraform validate
+      env:
+        TF_VAR_branch: ${{ vars.BRANCH }}
+        TF_VAR_kms_arn: ${{ secrets.KMS_KEY}}
       run: |
-        terraform fmt -recursive -check
+        cd infrastructure
         terraform init -backend=false
         terraform validate
 
