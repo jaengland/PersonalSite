@@ -15,6 +15,7 @@ jobs:
     - name: Terraform validate
       run: |
         terraform fmt -recursive -check
+        cd infrastructure
         terraform init -backend=false
         terraform validate
 
