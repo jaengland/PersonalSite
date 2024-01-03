@@ -18,7 +18,7 @@ data "aws_iam_policy_document" "bucket_policy" {
       "${aws_s3_bucket.bucket.arn}/*"
     ]
     condition {
-      test     = "bool"
+      test     = "Bool"
       variable = "aws:SecureTransport"
       values   = ["false"]
     }
