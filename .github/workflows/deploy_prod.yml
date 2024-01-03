@@ -23,7 +23,7 @@ jobs:
         BRANCH: ${{ vars.BRANCH }}
       run: |
         cd infrastructure
-        terraform init -backend-config="bucket=${BUCKET}" -backend-config="key=${BRANCH}.tfstate"
+        terraform init -backend-config="bucket=${BUCKET}" -backend-config="key=${BRANCH}.tfstate" -no-color
 
     - name: Terraform Apply
       env:
@@ -33,4 +33,4 @@ jobs:
         TF_VAR_kms_arn: ${{ secrets.KMS_KEY}}
       run: |
         cd infrastructure
-        terraform apply -auto-approve
+        terraform apply -auto-approve -no-color

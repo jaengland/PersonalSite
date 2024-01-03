@@ -13,7 +13,7 @@ jobs:
       uses: hashicorp/setup-terraform@v1
 
     - name: Terraform fmt
-      run: terraform fmt -recursive -check
+      run: terraform fmt -recursive -check -no-color
 
     - name: Terraform validate
       env:
@@ -21,8 +21,8 @@ jobs:
         TF_VAR_kms_arn: ${{ secrets.KMS_KEY}}
       run: |
         cd infrastructure
-        terraform init -backend=false
-        terraform validate
+        terraform init -backend=false -no-color
+        terraform validate -no-color
 
     - name: Set up Python
       uses: actions/setup-python@v2
