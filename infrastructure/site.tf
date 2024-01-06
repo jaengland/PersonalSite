@@ -18,7 +18,7 @@ module "frontend_cloudfront" {
 }
 
 resource "aws_s3_bucket_object" "site" {
-  for_each = fileset("../site_template/*", "*")
+  for_each = fileset("../site_template/", "**")
 
   bucket = module.site_s3_bucket.bucket_name
   key    = each.value
