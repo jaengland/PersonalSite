@@ -54,9 +54,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install dependencies
       run: |
-        cd tests\qunit
+        cd tests/qunit
         npm install
     - name: Run QUnit tests
       run: |
-        cd tests\qunit
+        cd tests/qunit
         npm test
