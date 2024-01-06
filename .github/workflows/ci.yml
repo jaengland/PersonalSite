@@ -40,7 +40,7 @@ jobs:
       run: |
         pipenv install --dev
         pipenv run unit_test
-  unitqUnit:
+  unitJSjest:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -53,9 +53,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install dependencies
       run: |
-        cd tests/qunit
+        cd tests/jest
         npm install
-    - name: Run QUnit tests
+    - name: Run jest tests
       run: |
-        cd tests/qunit
+        cd tests/jest
         npm test
