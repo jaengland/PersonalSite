@@ -66,6 +66,7 @@ resource "aws_acm_certificate" "cert" {
 }
 
 resource "aws_route53_record" "validation" {
+  count   = 1
   zone_id = data.aws_route53_zone.domain.zone_id
   name    = tolist(aws_acm_certificate.cert.domain_validation_options)[0].resource_record_name
   type    = tolist(aws_acm_certificate.cert.domain_validation_options)[0].resource_record_type
@@ -75,7 +76,7 @@ resource "aws_route53_record" "validation" {
 
 resource "aws_acm_certificate_validation" "cert" {
   certificate_arn         = aws_acm_certificate.cert.arn
-  validation_record_fqdns = aws_route53_record.validation.fqdn
+  validation_record_fqdns = aws_route53_record.validation.*.fqdn
 }
 
 resource "aws_route53_record" "record" {
