@@ -25,6 +25,9 @@ jobs:
         terraform init -backend=false -no-color
         terraform validate -no-color
   unitpytest:
+    runs-on: ubuntu-latest
+    environment: test
+    steps:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
