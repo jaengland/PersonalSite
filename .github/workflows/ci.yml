@@ -3,7 +3,7 @@ name: Continuous Integration
 on: [push]
 
 jobs:
-  test:
+  lint:
     runs-on: ubuntu-latest
     environment: test
     steps:
@@ -24,7 +24,7 @@ jobs:
         cd infrastructure
         terraform init -backend=false -no-color
         terraform validate -no-color
-
+  unitpytest:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
@@ -38,3 +38,18 @@ jobs:
     - name: Run tests
       run: |
         pipenv run unit_test
+  unitqUnit:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]  # Specify Node.js versions here
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install dependencies
+      run: npm install
+    - name: Run QUnit tests
+      run: npm test
