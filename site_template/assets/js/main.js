@@ -29,6 +29,16 @@
     return randomImage;
   }
 
+  const closeMobileNav = () => {
+    const navbar = select('#navbar');
+    if (navbar.classList.contains('navbar-mobile')) {
+      navbar.classList.remove('navbar-mobile');
+      const navToggle = select('.mobile-nav-toggle');
+      navToggle.classList.toggle('bi-list');
+      navToggle.classList.toggle('bi-x');
+    }
+  };
+
   /**
    * Reload home page
    */
@@ -77,6 +87,7 @@
       });
     });
 
+    closeMobileNav()
     return false;
   });
 
@@ -96,6 +107,7 @@
         $("#content").fadeIn(200);
       });
     });
+    closeMobileNav()
     return false;
   });
 
