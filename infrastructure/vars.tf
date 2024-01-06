@@ -4,6 +4,12 @@ variable "region" {
   default     = "us-east-1"
 }
 
+variable "domain" {
+  type        = string
+  description = "Domain name to point at cloudfront"
+  #TODO: Validation
+}
+
 variable "kms_arn" {
   type        = string
   description = "encryption kms arn aws_kms_key.mykey.arn"

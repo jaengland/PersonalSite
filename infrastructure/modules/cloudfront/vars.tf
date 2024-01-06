@@ -4,6 +4,12 @@ variable "bucket_regional_domain_name" {
   #TODO: Validation
 }
 
+variable "domain" {
+  type        = string
+  description = "Domain name to point at cloudfront"
+  #TODO: Validation
+}
+
 variable "branch_name" {
   type        = string
   description = "Name of the bucket"
