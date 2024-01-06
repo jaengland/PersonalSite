@@ -5,7 +5,8 @@ verify_ssl = true
 
 [dev-packages]
 pytest = "*"
+boto3 = "*"
 
 [scripts]
- unit_test = "pytest -v -m unit"
- integration_test = "pytest -v -m integration"
+unit_test = "pytest -v -m unit"
+integration_test = "pytest -v -m integration"
