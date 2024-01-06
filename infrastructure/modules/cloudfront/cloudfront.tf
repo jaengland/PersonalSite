@@ -14,7 +14,7 @@ resource "aws_cloudfront_distribution" "static_site_distribution" {
 
   enabled             = true
   default_root_object = "index.html"
-  # TODO: Add alias for custom domain. REQUIRES: Custom domain
+  aliases = [var.domain]
   # TODO: Consider enabling logging for troubleshooting. REQUIRES: logging bucket
 
   default_cache_behavior {
