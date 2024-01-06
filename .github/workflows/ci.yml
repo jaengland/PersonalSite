@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x]  # Specify Node.js versions here
+        node-version: ['20.x']
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
@@ -50,6 +50,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Install dependencies
-      run: npm install
+      run: |
+        cd tests\qunit
+        npm install
     - name: Run QUnit tests
-      run: npm test
+      run: |
+        cd tests\qunit
+        npm test
