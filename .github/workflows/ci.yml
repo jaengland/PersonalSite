@@ -28,18 +28,17 @@ jobs:
     runs-on: ubuntu-latest
     environment: test
     steps:
+    - uses: actions/checkout@v2
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: '3.11'
 
     - name: Install dependencies
-      run: |
-        pip install pipenv
-        pipenv install --dev
-
+      run: pip install pipenv
     - name: Run tests
       run: |
+        pipenv install --dev
         pipenv run unit_test
   unitqUnit:
     runs-on: ubuntu-latest
