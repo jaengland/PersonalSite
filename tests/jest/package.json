@@ -1,0 +1,25 @@
+{
+  "name": "qunit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test-main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "jest": {
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx|mjs)$": "babel-jest"
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.23.7",
+    "@babel/preset-env": "^7.23.7",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  }
+}
