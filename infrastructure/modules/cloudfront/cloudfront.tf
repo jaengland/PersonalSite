@@ -14,7 +14,7 @@ resource "aws_cloudfront_distribution" "static_site_distribution" {
 
   enabled             = true
   default_root_object = "index.html"
-  # TODO: Add alias for custom domain. REQUIRES: Custom domain
+  aliases             = [var.domain]
   # TODO: Consider enabling logging for troubleshooting. REQUIRES: logging bucket
 
   default_cache_behavior {
@@ -43,10 +43,10 @@ resource "aws_cloudfront_distribution" "static_site_distribution" {
   }
 
   viewer_certificate {
-    cloudfront_default_certificate = true
+    cloudfront_default_certificate = false
+    acm_certificate_arn            = aws_acm_certificate.cert.arn
     minimum_protocol_version       = "TLSv1.2_2021"
     ssl_support_method             = "sni-only"
-    # TODO: migrate to custom domain and ACM cert. REQUIRES: Custom domain
   }
 
   price_class = "PriceClass_100"
