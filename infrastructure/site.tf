@@ -14,5 +14,5 @@ module "frontend_cloudfront" {
 
   branch_name                 = var.branch_name
   bucket_regional_domain_name = module.site_s3_bucket.bucket_regional_domain_name
-
+  domain                      = var.domain
 }

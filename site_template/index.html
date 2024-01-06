@@ -1,28 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Static Site - Home</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Jason England - Portfolio</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- JQuery for page fade -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
+
 <body>
-    <header>
-        <h1>Welcome to My Static Site</h1>
-        <nav>
-            <ul>
-                <li><a href="#" id="home-link">Home</a></li>
-                <li><a href="#" id="projects-link">Projects</a></li>
-            </ul>
-        </nav>
-    </header>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex" float: right>
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="home-link active" href="#" id="home-link">home</a></li>
+                    <li><a class="about-link" href="#" id="about-link">About</a></li>
+                    <!-- <li><a class="skills-link" href="#">Skills</a></li> -->
+                    <!-- <li><a class="experience-link" href="#">Experience</a></li> -->
+                    <!-- <li><a class="portfolio-link" href="#">Portfolio</a></li> -->
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+        </div>
+    </header><!-- End Header -->
+    <div id="photog" class="previousImage photog0.jpg"></div>
+
     <main id="content">
-        <p>Placeholder site content</p>
-    </main>
-    <footer>
-        <p>© 2023 Jason England</p>
-    </footer>
-    <script src="js/script.js"></script>
+
+        <!-- ======= home Section ======= -->
+        <div id="home" class="home route bg-image" style="background-image: url(assets/img/photog0.jpg)">
+            <div class="overlay"></div>
+            <div class="home-content display-table">
+                <div class="table-cell">
+                    <div class="container">
+                        <h1 class="home-title mb-4">I am Jason England</h1>
+                        <p class="home-subtitle"><span class="typed"
+                                data-typed-items="Developer, Photographer, Outdoor Enthusiast"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End home Section -->
+
+    </main> <!-- End content -->
+
+    <div class="floating-footer">
+        © 2024 Jason England
+    </div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/typed.js/typed.umd.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
 </body>
+
 </html>

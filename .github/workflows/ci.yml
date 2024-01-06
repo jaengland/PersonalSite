@@ -19,6 +19,7 @@ jobs:
       env:
         TF_VAR_branch: ${{ vars.BRANCH }}
         TF_VAR_kms_arn: ${{ secrets.KMS_KEY}}
+        TF_VAR_domain: ${{ secrets.DOMAIN}}
       run: |
         cd infrastructure
         terraform init -backend=false -no-color
