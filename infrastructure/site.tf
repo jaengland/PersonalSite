@@ -28,8 +28,8 @@ module "dynamodb" {
 resource "aws_s3_object" "site" {
   for_each = fileset("../site_template/", "**")
 
-  bucket = module.site_s3_bucket.bucket_name
-  key    = each.value
-  source = "../site_template/${each.value}"
-  etag   = filemd5("../site_template/${each.value}")
+  bucket      = module.site_s3_bucket.bucket_name
+  key         = each.value
+  source      = "../site_template/${each.value}"
+  source_hash = filemd5("../site_template/${each.value}")
 }
