@@ -4,7 +4,7 @@ resource "aws_dynamodb_table" "siteinfo" {
   read_capacity  = 1
   write_capacity = 1
   hash_key       = "type"
-  range_key      = "project_name"
+  range_key      = "name"
 
   attribute {
     name = "type"
@@ -12,7 +12,7 @@ resource "aws_dynamodb_table" "siteinfo" {
   }
 
   attribute {
-    name = "project_name"
+    name = "name"
     type = "S"
   }
 
