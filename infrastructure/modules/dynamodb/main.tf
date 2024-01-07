@@ -1,5 +1,4 @@
-
-resource "aws_dynamodb_table" "your_table" {
+resource "aws_dynamodb_table" "siteinfo" {
   name           = local.dynamodb_name
   billing_mode   = "PROVISIONED"
   read_capacity  = 1
