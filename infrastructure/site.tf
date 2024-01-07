@@ -22,7 +22,7 @@ module "dynamodb" {
 
   dynamo_name = "SiteInfo"
   branch_name = var.branch_name
-  kms_arn = var.kms_arn
+  kms_arn     = var.kms_arn
 }
 
 resource "aws_s3_object" "site" {
