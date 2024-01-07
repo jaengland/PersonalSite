@@ -17,7 +17,15 @@ module "frontend_cloudfront" {
   domain                      = var.domain
 }
 
-resource "aws_s3_bucket_object" "site" {
+module "dynamodb" {
+  source = "./modules/dynamodb"
+
+  dynamo_name = "SiteInfo"
+  branch_name = var.branch_name
+  kms_arn     = var.kms_arn
+}
+
+resource "aws_s3_object" "site" {
   for_each = fileset("../site_template/", "**")
 
   bucket = module.site_s3_bucket.bucket_name
