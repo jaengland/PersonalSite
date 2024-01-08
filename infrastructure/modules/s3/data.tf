@@ -46,7 +46,7 @@ data "aws_iam_policy_document" "bucket_policy" {
     effect = "Allow"
     principals {
       type        = "AWS"
-      identifiers = [var.lambda_role_arn]
+      identifiers = [var.aws_lambda_role_arn]
     }
     actions = [
       "s3:PutObject"
