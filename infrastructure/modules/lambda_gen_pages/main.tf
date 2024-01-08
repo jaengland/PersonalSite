@@ -66,8 +66,8 @@ resource "aws_lambda_function" "lambda" {
   handler          = var.lambda_handler
   role             = aws_iam_role.lambda_role.arn
   runtime          = var.runtime
-  filename         = archive_file.lambda_gen_pages.output_path
-  source_code_hash = archive_file.lambda_gen_pages.output_base64sha256
+  filename         = data.archive_file.lambda_gen_pages.output_path
+  source_code_hash = data.archive_file.lambda_gen_pages.output_base64sha256
   timeout          = 60
 
   environment {
