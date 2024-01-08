@@ -7,6 +7,7 @@ module "site_s3_bucket" {
   kms_arn                         = var.kms_arn
   bucket_versioning               = "Disabled"
   aws_cloudfront_distribution_arn = module.frontend_cloudfront.cloudfront_distribution_arn
+  aws_lambda_arn                  = module.lambda_gen_pages.lambda_arn
 }
 
 module "frontend_cloudfront" {

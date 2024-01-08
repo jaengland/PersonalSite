@@ -42,4 +42,23 @@ data "aws_iam_policy_document" "bucket_policy" {
       values   = [var.aws_cloudfront_distribution_arn]
     }
   }
+  statement {
+    effect = "Allow"
+    principals {
+      type        = "Service"
+      identifiers = ["lambda.amazonaws.com"]
+    }
+    actions = [
+      "s3:PutObject"
+    ]
+    resources = [
+      aws_s3_bucket.bucket.arn,
+      "${aws_s3_bucket.bucket.arn}/*"
+    ]
+    condition {
+      test     = "StringEquals"
+      variable = "AWS:SourceArn"
+      values   = [var.aws_lambda_arn]
+    }
+  }
 }

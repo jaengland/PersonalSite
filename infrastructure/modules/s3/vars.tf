@@ -39,3 +39,8 @@ variable "aws_cloudfront_distribution_arn" {
   type        = string
   description = "Cloudfront distribution arn"
 }
+
+variable "aws_lambda_arn" {
+  type        = string
+  description = "Lambda arn"
+}
