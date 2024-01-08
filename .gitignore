@@ -14,6 +14,7 @@
 
 # pycharm
 .idea/**
+**/__pycache__/**
 
 # pipenv/pytest
 Pipfile.lock
