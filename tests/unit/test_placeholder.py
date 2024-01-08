@@ -97,7 +97,11 @@ def test_retrieve_content():
     table.put_item(Item={'type': 'test_type', 'name': 'myproject', 'content': 'test_content'})
 
     # Call the function
-    response = retrieve_content('test_table', 'test_type')
+    response = retrieve_content(
+        dynamo_client=dynamodb,
+        dynamo_table='test_table',
+        query='test_type'
+    )
 
     # Assertions
     assert 'Items' in response

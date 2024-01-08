@@ -29,7 +29,12 @@ def lambda_handler(event: json, context: json):
 
     # Connect to DynamoDB and retrieve data
     query = "Project"  # temporarily hard code this
-    response = retrieve_content(dynamo_table=dynamo_table, query=query)
+    dynamodb = boto3.resource('dynamodb')
+    response = retrieve_content(
+        dynamo_client=dynamodb,
+        dynamo_table=dynamo_table,
+        query=query
+        )
     logger.debug("## Dynamo Results")
     logger.debug(response)
 
@@ -49,9 +54,8 @@ def lambda_handler(event: json, context: json):
     return response
 
 
-def retrieve_content(dynamo_table: str, query: str):
-    dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table(dynamo_table)
+def retrieve_content(dynamo_client, dynamo_table: str, query: str):
+    table = dynamo_client.Table(dynamo_table)
     response = table.query(
         KeyConditionExpression="type = :query_value",
         ExpressionAttributeValues={":query_value": query}
