@@ -5,7 +5,7 @@ variable "runtime" {
 }
 
 variable "lambda_variables" {
-  type        = map
+  type        = map(any)
   description = "map of variables"
 }
 

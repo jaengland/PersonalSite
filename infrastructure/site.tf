@@ -27,7 +27,7 @@ module "dynamodb" {
 
 module "lambda_gen_pages" {
   source = "./modules/lambda_gen_pages"
-  
+
   function_name  = "jaengland_gen_pages"
   lambda_handler = "lambda_function.lambda_handler"
   dynamo_arn     = module.dynamodb.dynamo_arn
