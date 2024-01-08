@@ -40,7 +40,7 @@ variable "aws_cloudfront_distribution_arn" {
   description = "Cloudfront distribution arn"
 }
 
-variable "aws_lambda_arn" {
+variable "aws_lambda_role_arn" {
   type        = string
-  description = "Lambda arn"
+  description = "Lambda role arn"
 }
