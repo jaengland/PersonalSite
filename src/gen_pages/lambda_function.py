@@ -57,7 +57,7 @@ def lambda_handler(event: json, context: json):
 def retrieve_content(dynamo_client, dynamo_table: str, query: str):
     table = dynamo_client.Table(dynamo_table)
     response = table.query(
-        KeyConditionExpression="type = :query_value",
+        KeyConditionExpression="page_type = :query_value",
         ExpressionAttributeValues={":query_value": query}
     )
     logger.debug("## Dynamo Results")
@@ -80,7 +80,7 @@ def create_project_line(project: dict):
     :param project: json from DynamodDb Result
     :return: string
     """
-    html = f'<li style="width:33%"><a href={project["project_url"]}>{project["name"]}</a></li>'
+    html = f'<li style="width:33%"><a href={project["project_url"]}>{project["item_name"]}</a></li>'
     html += f'<li style="width:66%">{project["project_description"]}</li>'
 
     return html

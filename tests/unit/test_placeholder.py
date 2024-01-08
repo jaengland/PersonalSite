@@ -82,19 +82,19 @@ def test_retrieve_content():
     dynamodb.create_table(
         TableName='test_table',
         KeySchema=[
-            {'AttributeName': 'type', 'KeyType': 'HASH'},
-            {'AttributeName': 'name', 'KeyType': 'RANGE'}
+            {'AttributeName': 'page-type', 'KeyType': 'HASH'},
+            {'AttributeName': 'item-name', 'KeyType': 'RANGE'}
         ],
         AttributeDefinitions=[
-            {'AttributeName': 'type', 'AttributeType': 'S'},
-            {'AttributeName': 'name', 'AttributeType': 'S'}
+            {'AttributeName': 'page-type', 'AttributeType': 'S'},
+            {'AttributeName': 'item-name', 'AttributeType': 'S'}
         ],
         ProvisionedThroughput={'ReadCapacityUnits': 1, 'WriteCapacityUnits': 1}
     )
 
     # Put sample item in the table
     table = dynamodb.Table('test_table')
-    table.put_item(Item={'type': 'test_type', 'name': 'myproject', 'content': 'test_content'})
+    table.put_item(Item={'page-type': 'test_type', 'item-name': 'myproject', 'content': 'test_content'})
 
     # Call the function
     response = retrieve_content(

@@ -3,16 +3,16 @@ resource "aws_dynamodb_table" "siteinfo" {
   billing_mode   = "PROVISIONED"
   read_capacity  = 1
   write_capacity = 1
-  hash_key       = "type"
-  range_key      = "name"
+  hash_key       = "page_type"
+  range_key      = "item_name"
 
   attribute {
-    name = "type"
+    name = "page_type"
     type = "S"
   }
 
   attribute {
-    name = "name"
+    name = "item_name"
     type = "S"
   }
 
