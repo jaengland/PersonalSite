@@ -4,11 +4,6 @@ variable "runtime" {
   default     = "python3.12"
 }
 
-variable "lambda_file" {
-  type        = string
-  description = "file to upload"
-}
-
 variable "lambda_variables" {
   type        = map
   description = "map of variables"
