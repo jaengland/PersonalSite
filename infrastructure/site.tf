@@ -32,6 +32,7 @@ module "lambda_gen_pages" {
   lambda_handler = "lambda_function.lambda_handler"
   dynamo_arn     = module.dynamodb.dynamo_arn
   s3_bucket_arn  = module.site_s3_bucket.bucket_arn
+  kms_arn        = var.kms_arn
   lambda_variables = {
     dynamo_table = "${module.dynamodb.dynamo_table_name}"
     s3_bucket    = "${module.site_s3_bucket.bucket_name}"

@@ -28,3 +28,13 @@ variable "s3_bucket_arn" {
   type        = string
   description = "bucket arn to grant access to"
 }
+
+variable "kms_arn" {
+  type        = string
+  description = "encryption kms arn aws_kms_key.mykey.arn"
+
+  validation {
+    condition     = can(regex("^arn:aws:kms:\\w+(?:-\\w+)+:\\d{12}:key\\/[\\w\\d]+", var.kms_arn))
+    error_message = "Invalid kms arn"
+  }
+}

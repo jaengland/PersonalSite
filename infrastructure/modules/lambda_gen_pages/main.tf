@@ -48,6 +48,15 @@ data "aws_iam_policy_document" "lambda_policy" {
     resources = [var.s3_bucket_arn]
     effect    = "Allow"
   }
+  statement {
+    sid = "AllowDecrypt"
+    actions = [
+      "kms:Decrypt",
+      "kms:Encrypt"
+    ]
+    resources = [var.kms_arn]
+    effect    = "Allow"
+  }
 }
 
 resource "aws_iam_policy" "lambda_policy" {
