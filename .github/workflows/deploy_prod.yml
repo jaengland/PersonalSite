@@ -33,5 +33,6 @@ jobs:
         TF_VAR_kms_arn: ${{ secrets.KMS_KEY}}
         TF_VAR_domain: ${{ secrets.DOMAIN}}
       run: |
+        cp ./src/gen_pages ./infrastructure/modules/lambda_gen_pages/
         cd infrastructure
         terraform apply -auto-approve -no-color

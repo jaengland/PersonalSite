@@ -1,7 +1,7 @@
 import pytest
 import boto3
 from moto import mock_s3, mock_dynamodb
-from infrastructure.modules.lambda_gen_pages.src.lambda_function import upload_html, \
+from src.gen_pages.lambda_function import upload_html, \
     generate_html, create_project_line, retrieve_content
 
 
