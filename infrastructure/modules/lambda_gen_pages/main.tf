@@ -52,7 +52,8 @@ data "aws_iam_policy_document" "lambda_policy" {
     sid = "AllowDecrypt"
     actions = [
       "kms:Decrypt",
-      "kms:Encrypt"
+      "kms:Encrypt",
+      "kms:GenerateDataKey"
     ]
     resources = [var.kms_arn]
     effect    = "Allow"
