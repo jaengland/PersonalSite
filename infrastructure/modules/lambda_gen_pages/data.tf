@@ -1,5 +1,5 @@
 
-resource "archive_file" "lambda_gen_pages" {
+data "archive_file" "lambda_gen_pages" {
   output_path      = "${path.root}/lambda_gen_pages.zip"
   output_file_mode = "0666"
   type             = "zip"
