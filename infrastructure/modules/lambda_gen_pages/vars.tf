@@ -5,12 +5,12 @@ variable "runtime" {
 }
 
 variable "lambda_file" {
-  type        = archive_file
+  type        = string
   description = "file to upload"
 }
 
 variable "lambda_variables" {
-  type        = map()
+  type        = map
   description = "map of variables"
 }
 
