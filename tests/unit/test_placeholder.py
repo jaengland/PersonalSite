@@ -40,7 +40,7 @@ def test_upload_html():
 @pytest.mark.unit
 def test_create_project_line():
     project = {
-        "name": "MyProject",
+        "item_name": "MyProject",
         "project_url": "https://example.com",
         "project_description": "This is a test project"
     }
@@ -55,12 +55,12 @@ def test_create_project_line():
 def test_generate_html():
     projects = [
         {
-            "name": "Project1",
+            "item_name": "Project1",
             "project_url": "https://project1.com",
             "project_description": "Description 1"
         },
         {
-            "name": "Project2",
+            "item_name": "Project2",
             "project_url": "https://project2.com",
             "project_description": "Description 2"
         }
@@ -82,19 +82,19 @@ def test_retrieve_content():
     dynamodb.create_table(
         TableName='test_table',
         KeySchema=[
-            {'AttributeName': 'page-type', 'KeyType': 'HASH'},
-            {'AttributeName': 'item-name', 'KeyType': 'RANGE'}
+            {'AttributeName': 'page_type', 'KeyType': 'HASH'},
+            {'AttributeName': 'item_name', 'KeyType': 'RANGE'}
         ],
         AttributeDefinitions=[
-            {'AttributeName': 'page-type', 'AttributeType': 'S'},
-            {'AttributeName': 'item-name', 'AttributeType': 'S'}
+            {'AttributeName': 'page_type', 'AttributeType': 'S'},
+            {'AttributeName': 'item_name', 'AttributeType': 'S'}
         ],
         ProvisionedThroughput={'ReadCapacityUnits': 1, 'WriteCapacityUnits': 1}
     )
 
     # Put sample item in the table
     table = dynamodb.Table('test_table')
-    table.put_item(Item={'page-type': 'test_type', 'item-name': 'myproject', 'content': 'test_content'})
+    table.put_item(Item={'page_type': 'test_type', 'item_name': 'myproject', 'content': 'test_content'})
 
     # Call the function
     response = retrieve_content(
