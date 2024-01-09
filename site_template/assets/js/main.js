@@ -55,6 +55,22 @@ import { closeMobileNav, updateActiveTab, startTyped} from './nav.js';
   });
 
   /**
+   * Load Projects page
+   */
+  $(document).on('click', '#projects-link', function () {
+    // change focus
+    updateActiveTab(selectFn, '.projects-link')
+
+    $("#content").fadeOut(200, function () {
+      $("#content").load("projects.html", function () {
+        $("#content").fadeIn(200);
+      });
+    });
+    closeMobileNav(selectFn)
+    return false;
+  });
+
+  /**
    * Easy event listener function
    */
   const on = (type, el, listener, all = false) => {

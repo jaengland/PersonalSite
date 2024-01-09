@@ -45,8 +45,8 @@ def test_create_project_line():
         "project_description": "This is a test project"
     }
 
-    expected_html = '<li style="width:33%"><a href=https://example.com>MyProject</a></li>'
-    expected_html += '<li style="width:66%">This is a test project</li>'
+    expected_html = '<li style="width:90%"><a class="project" href=https://example.com>MyProject</a>'
+    expected_html += '  -  This is a test project</li><br>\n'
 
     assert create_project_line(project) == expected_html
 

@@ -34,7 +34,7 @@ def lambda_handler(event: json, context: json):
         dynamo_client=dynamodb,
         dynamo_table=dynamo_table,
         query=query
-        )
+    )
     logger.debug("## Dynamo Results")
     logger.debug(response)
 
@@ -68,7 +68,7 @@ def retrieve_content(dynamo_client, dynamo_table: str, query: str):
 def generate_html(items: list):
     html_content = "<ul>"
     for project in items:
-        html_content += create_project_line(project=project) 
+        html_content += create_project_line(project=project)
     html_content += "</ul>"
 
     return html_content
@@ -80,8 +80,8 @@ def create_project_line(project: dict):
     :param project: json from DynamodDb Result
     :return: string
     """
-    html = f'<li style="width:33%"><a href={project["project_url"]}>{project["item_name"]}</a></li>'
-    html += f'<li style="width:66%">{project["project_description"]}</li>'
+    html = f'<li style="width:90%"><a class="project" href={project["project_url"]}>{project["item_name"]}</a>'
+    html += f'  -  {project["project_description"]}</li><br>\n'
 
     return html
 
