@@ -1,0 +1,152 @@
+[
+    {
+        "image": "assets/img/technology/Arch_Amazon-API-Gateway_64@5x.png",
+        "technology": "AWS API Gateway",
+        "description": "Used AWS Api Gateway for interface between microservices as well as exposing or integrating applications.",
+        "confidence": 6.2
+    },
+    {
+        "image": "assets/img/technology/Arch_Amazon-CloudFront_64@5x.png",
+        "technology": "AWS CloudFront",
+        "description": "Used Cloudfront as hosting for static site assets and restricting a site to internal-only.",
+        "confidence": 4
+    },
+    {
+        "image": "assets/img/technology/Arch_Amazon-DynamoDB_64@5x.png",
+        "technology": "AWS DynamoDB",
+        "description": "Used DynamoDB for configuration storage and as a long-term cache for data not easily collected.",
+        "confidence": 4.1
+    },
+    {
+        "image": "assets/img/technology/Arch_AWS-CodeBuild_64@5x.png",
+        "technology": "AWS CodeBuild",
+        "description": "Used CodeBuild to deliver static analysis, testing, and infrastructure deployment via terraform.",
+        "confidence": 5.3
+    },
+    {
+        "image": "assets/img/technology/Arch_AWS-CodePipeline_64@5x.png",
+        "technology": "AWS CodePipeline",
+        "description": "Used CodePipeline to orchestrate integration and deployment of code through SDLC environments.",
+        "confidence": 5.2
+    },
+    {
+        "image": "assets/img/technology/Arch_AWS-Identity-and-Access-Management_64@5x.png",
+        "technology": "AWS IAM",
+        "description": "Wrote IAM roles and policies to deliver least-privledge access between cloud resources.",
+        "confidence": 6.4
+    },
+    {
+        "image": "assets/img/technology/Arch_AWS-Secrets-Manager_64@5x.png",
+        "technology": "AWS Secrets Manager",
+        "description": "Used Secrets Manager for integrating Cloud resources with on-premise resources.",
+        "confidence": 4.5
+    },
+    {
+        "image": "assets/img/technology/Arch_AWS-Step-Functions_64@5x.png",
+        "technology": "AWS Step Functions",
+        "description": "Used Step Functions for orchestrating serverless workflows utilizing AWS Lambda and AWS ECS Tasks.",
+        "confidence": 6.5
+    },
+    {
+        "image": "assets/img/technology/confluence.jpg",
+        "technology": "Atlassian Confluence",
+        "description": "Create and organize team documentation in Atlassian Confluence",
+        "confidence": 6.8
+    },
+    {
+        "image": "assets/img/technology/docker.png",
+        "technology": "Docker",
+        "description": "Created docker containers for standardizing local development and testing as well as for serverless workloads.",
+        "confidence": 5.0
+    },
+    {
+        "image": "assets/img/technology/git.png",
+        "technology": "Git",
+        "description": "Used Github and Bitbucket as source control for tracking iterative development.",
+        "confidence": 7.1
+    },
+    {
+        "image": "assets/img/technology/OneNote.png",
+        "technology": "Microsoft OneNote",
+        "description": "Used OneNote for taking meeting notes as collecting information prior to creating documentation on Confluence.",
+        "confidence": 6.8
+    },
+    {
+        "image": "assets/img/technology/swagger.png",
+        "technology": "Swagger OpenAPI",
+        "description": "Used Swagger OpenAPI to create AWS API Gateway definitions with integrations to AWS Lambda, ECS Tasks, and DynamoDb.",
+        "confidence": 7.2
+    },
+    {
+        "image": "assets/img/technology/PowerShell.png",
+        "technology": "Microsoft PowerShell",
+        "description": "Used PowerShell for automation and configuration of Windows Servers.",
+        "confidence": 4.5
+    },
+    {
+        "image": "assets/img/technology/pytest_logo.svg",
+        "technology": "Pytest",
+        "description": "Used Pytest to perform mock unit testing as well as integration testing of code and cloud infrastructure.",
+        "confidence": 5.3
+    },
+    {
+        "image": "assets/img/technology/python.png",
+        "technology": "Python",
+        "description": "Delivered numerous automated tasks and integrations in Python.",
+        "confidence": 7.5
+    },
+    {
+        "image": "assets/img/technology/Res_Amazon-EC2_Auto-Scaling_48.png",
+        "technology": "AWS EC2 Auto-Scaling",
+        "description": "Used Auto Scaling groups for delivering redundant infrastructure appliances.",
+        "confidence": 1.1
+    },
+    {
+        "image": "assets/img/technology/Res_Amazon-EC2_Instance_48.png",
+        "technology": "AWS EC2 Instance",
+        "description": "Used EC2 for interactive testing in AWS and longterm appliances.",
+        "confidence": 4.9
+    },
+    {
+        "image": "assets/img/technology/Res_Amazon-Elastic-Container-Service_Task_48.png",
+        "technology": "AWS ECS Tasks",
+        "description": "Used ECS tasks to run on-demand selenium.",
+        "confidence": 3.9
+    },
+    {
+        "image": "assets/img/technology/Res_Amazon-Simple-Storage-Service_Bucket_48.png",
+        "technology": "AWS S3",
+        "description": "Used AWS S3 for terraform backend, static sites, and storage of assets and artifacts.",
+        "confidence": 5.5
+    },
+    {
+        "image": "assets/img/technology/Res_AWS-Certificate-Manager_Certificate-Authority_48.png",
+        "technology": "AWS Certificate Manager",
+        "description": "Use ACM for provisioning and rotation of SSL certificates.",
+        "confidence": 5.9
+    },
+    {
+        "image": "assets/img/technology/Res_AWS-Lambda_Lambda-Function_48.png",
+        "technology": "AWS Lambda Function",
+        "description": "Use Lambda Functions to deliver serverless on-demand functionality.",
+        "confidence": 7.3
+    },
+    {
+        "image": "assets/img/technology/Res_AWS-Systems-Manager_Parameter-Store_48.png",
+        "technology": "AWS Parameter Store",
+        "description": "Use Parameter Store for defining SDLC specific configuration.",
+        "confidence": 4.4
+    },
+    {
+        "image": "assets/img/technology/terraform.png",
+        "technology": "Hashicorp Terraform",
+        "description": "Deployed and manage thousands of AWS resources all documented as Infrastructure as Code in Terraform",
+        "confidence": 6.8
+    },
+    {
+        "image": "assets/img/technology/websphere.jpg",
+        "technology": "IBM Websphere",
+        "description": "Installed, configured, and administrated IBM WebSphere environment hosting hundreds of Java applications.",
+        "confidence": 6.7
+    }
+]

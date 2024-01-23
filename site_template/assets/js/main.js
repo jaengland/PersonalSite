@@ -1,4 +1,4 @@
-import { selectFn, getRandomImage} from './utils.js';
+import { selectFn, getRandomImage, loadJsonFile, generateAndPlaceTiles} from './utils.js';
 import { closeMobileNav, updateActiveTab, startTyped} from './nav.js';
 
 (function () {
@@ -69,6 +69,27 @@ import { closeMobileNav, updateActiveTab, startTyped} from './nav.js';
     closeMobileNav(selectFn)
     return false;
   });
+
+    /**
+   * Load technology page
+   */
+
+    $(document).on('click', '#technology-link', function () {
+      // change focus
+      updateActiveTab(selectFn, '.technology-link')
+      //loadJsonFile
+      $("#content").fadeOut(200, function () {
+        $("#content").load("technology.html", function () {
+          loadJsonFile('assets/js/technology.json').then(jsonData => {
+            generateAndPlaceTiles(jsonData, selectFn);
+          });
+          $("#content").fadeIn(200);
+        });
+      });
+      closeMobileNav(selectFn)
+      return false;
+    });
+    
 
   /**
    * Easy event listener function
