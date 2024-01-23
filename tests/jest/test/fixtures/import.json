@@ -1,0 +1,14 @@
+[
+    {
+        "image": "assets/img/technology/Arch_Amazon-API-Gateway_64@5x.png",
+        "technology": "AWS API Gateway",
+        "description": "Used AWS Api Gateway for interface between microservices as well as exposing or integrating applications.",
+        "confidence": 6.2
+    },
+    {
+        "image": "assets/img/technology/Arch_Amazon-CloudFront_64@5x.png",
+        "technology": "AWS CloudFront",
+        "description": "Used Cloudfront as hosting for static site assets and restricting a site to internal-only.",
+        "confidence": 4
+    }
+]

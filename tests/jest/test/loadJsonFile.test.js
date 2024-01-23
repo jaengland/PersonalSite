@@ -16,10 +16,10 @@ describe('loadJsonFile', () => {
     });
     fetch.mockImplementation(() => mockFetchPromise);
 
-    const result = await loadJsonFile('path/to/file.json');
+    const result = await loadJsonFile('./fixtures/import.json');
     expect(result).toEqual({ key: 'value' });
     expect(fetch).toHaveBeenCalledTimes(1);
-    expect(fetch).toHaveBeenCalledWith('path/to/file.json');
+    expect(fetch).toHaveBeenCalledWith('./fixtures/import.json');
   });
 
   it('should throw an error when response is not ok', async () => {
@@ -28,7 +28,7 @@ describe('loadJsonFile', () => {
     });
     fetch.mockImplementation(() => mockFetchPromise);
 
-    await expect(loadJsonFile('path/to/file.json')).rejects.toThrow('Network response was not ok');
+    await expect(loadJsonFile('./fixtures/import.json')).rejects.toThrow('Network response was not ok');
   });
 
   it('should log an error when fetch operation fails', async () => {
@@ -36,7 +36,7 @@ describe('loadJsonFile', () => {
 
     console.error = jest.fn(); 
 
-    await loadJsonFile('path/to/file.json');
+    await loadJsonFile('./fixtures/import.json');
     expect(console.error).toHaveBeenCalledWith('There has been a problem with your fetch operation:', 'Network error');
   });
 });
