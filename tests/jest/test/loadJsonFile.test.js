@@ -37,6 +37,6 @@ describe('loadJsonFile', () => {
     console.error = jest.fn(); 
 
     await loadJsonFile('./fixtures/import.json');
-    expect(console.error).toHaveBeenCalledWith('There has been a problem with your fetch operation:', 'Network error');
+    expect(console.error).toHaveBeenCalledWith('There has been a problem with your fetch operation:', 'Network response was not ok');
   });
 });
