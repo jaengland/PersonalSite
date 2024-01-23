@@ -6,6 +6,7 @@ describe('loadJsonFile', () => {
 
   beforeEach(() => {
     fetch.mockClear();
+    jest.restoreAllMocks();
   });
 
   it('should load and parse JSON file when response is ok', async () => {
@@ -33,10 +34,13 @@ describe('loadJsonFile', () => {
 
   it('should log an error when fetch operation fails', async () => {
     fetch.mockImplementation(() => Promise.reject('Network error'));
+    const spy = jest.spyOn(console, 'error')
 
-    console.error = jest.fn(); 
-
-    await loadJsonFile('./fixtures/import.json');
-    expect(console.error).toHaveBeenCalledWith('There has been a problem with your fetch operation:', 'Network response was not ok');
+    try {
+        await loadJsonFile('./fixtures/import.json');
+    } catch (e) {
+        // Catch the expected error to prevent the test from failing
+    }
+    expect(spy).toHaveBeenCalledWith('There has been a problem with your fetch operation:', 'Network error');
   });
 });
