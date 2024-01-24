@@ -84,7 +84,7 @@
         "confidence": 4.5
     },
     {
-        "image": "assets/img/technology/pytest_logo.svg",
+        "image": "assets/img/technology/pytest_logo.jpg",
         "technology": "Pytest",
         "description": "Used Pytest to perform mock unit testing as well as integration testing of code and cloud infrastructure.",
         "confidence": 5.3
