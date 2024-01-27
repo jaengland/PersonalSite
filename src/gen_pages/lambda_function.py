@@ -7,13 +7,13 @@ logger = logging.getLogger()
 logger.setLevel(os.environ.get("logging_level", "INFO"))
 
 
-def lambda_handler(event: json, context: json):
+def lambda_handler(event: json, context: json) -> dict:
     """
     AWS Event handler to create a new projects.html for display
 
     :param event: AWS Lambda event
     :param context: AWS Lambda context
-    :return: "Success"
+    :return: dict
     """
     # Initial state
     logger.debug("## Event and Context")
@@ -54,7 +54,16 @@ def lambda_handler(event: json, context: json):
     return response
 
 
-def retrieve_content(dynamo_client, dynamo_table: str, query: str):
+def retrieve_content(dynamo_client: boto3.client, dynamo_table: str, query: str) -> dict:
+    """
+    Function to retrieve content from DynamoDB
+
+    :param dynamo_client: boto3 client or resource
+    :param dynamo_table: name of the table to query
+    :param query: value to query for
+
+    :return: dict
+    """
     table = dynamo_client.Table(dynamo_table)
     response = table.query(
         KeyConditionExpression="page_type = :query_value",
@@ -65,7 +74,12 @@ def retrieve_content(dynamo_client, dynamo_table: str, query: str):
     return response
 
 
-def generate_html(items: list):
+def generate_html(items: list) -> str:
+    """
+    Function to compile project entries into a list
+    :param project: json from DynamodDb Result
+    :return: string
+    """
     html_content = "<ul>"
     for project in items:
         html_content += create_project_line(project=project)
@@ -74,7 +88,7 @@ def generate_html(items: list):
     return html_content
 
 
-def create_project_line(project: dict):
+def create_project_line(project: dict) -> str:
     """
     Function to create each project entry
     :param project: json from DynamodDb Result
@@ -86,7 +100,15 @@ def create_project_line(project: dict):
     return html
 
 
-def upload_html(s3_bucket: str, html_result: str):
+def upload_html(s3_bucket: str, html_result: str) -> dict:
+    """
+    Function to put_object to s3 bucket
+
+    :param s3_bucket: s3 bucket name
+    :param html_result: contents of file
+
+    :return: dict
+    """
     s3_client = boto3.client("s3")
     response = s3_client.put_object(
         Bucket=s3_bucket,
