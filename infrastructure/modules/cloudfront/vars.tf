@@ -3,7 +3,7 @@ variable "bucket_regional_domain_name" {
   description = "Domain of the source bucket"
 
   validation {
-    condition     = can(regex("^http.+\\.s3-website-(us|eu)-(east|west|central)-(1|2)\\.amazonaws\\.com$", var.bucket_regional_domain_name))
+    condition     = can(regex("^.+\\.s3\\.(us|eu)-(east|west|central)-(1|2)\\.amazonaws\\.com$", var.bucket_regional_domain_name))
     error_message = "Invalid domain"
   }
 }
