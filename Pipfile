@@ -6,7 +6,7 @@ verify_ssl = true
 [dev-packages]
 pytest = "*"
 boto3 = "*"
-moto = "*"
+moto[all] = "*"
 
 [scripts]
 unit_test = "pytest -v -m unit"
