@@ -7,7 +7,11 @@ variable "region" {
 variable "domain" {
   type        = string
   description = "Domain name to point at cloudfront"
-  #TODO: Validation
+
+  validation {
+    condition     = can(regex("^(([A-Za-z0-9-])+\\.)+[A-Za-z]{2,6}$", var.domain))
+    error_message = "Invalid domain"
+  }
 }
 
 variable "kms_arn" {

@@ -92,6 +92,6 @@ resource "aws_route53_record" "record" {
 }
 
 
-# TODO: Add aws_waf
-# TODO: Add aws_shield_protection
-# TODO: Add tags
+# not free: Add aws_waf
+# not free: Add aws_shield_protection
+
