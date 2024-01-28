@@ -4,9 +4,11 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+
+[packages]
 pytest = "*"
 boto3 = "*"
-moto = {extras = ["all"], version = "*"}
+moto = {extras = ["s3", "dynamodb", "all"], version = "4.2.14"}
 
 [scripts]
 unit_test = "pytest -v -m unit"
