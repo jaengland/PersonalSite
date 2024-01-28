@@ -295,6 +295,10 @@ a:hover {
   color: #1B1B1B;
 }
 
+.about-me a{
+  color: rgb(167, 0, 0)
+}
+
 .about-mf .box-shadow-full {
   padding-top: 4rem;
   padding-bottom: 4rem;
