@@ -13,7 +13,7 @@ variable "domain" {
   description = "Domain name to point at cloudfront"
 
   validation {
-    condition     = can(regex("^((?!-)[A-Za-z0-9-]{1, 63}(?<!-)\\.)+[A-Za-z]{2, 6}$", var.domain))
+    condition     = can(regex("^(([A-Za-z0-9-])+\\.)+[A-Za-z]{2,6}$", var.domain))
     error_message = "Invalid domain"
   }
 }
